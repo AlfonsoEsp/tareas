@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json body comand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>json body comand</h1>
+    <p>dice que:</p>
+    <p><span id="accion"></span></p>
+
+    <script>
+
+        fetch('archivo.json')
+
+        .then(response => response.json())
+        .then(json => {
+
+            document.getElementById("accion").innerHTML = json.acciones[2] + " " + json.partes[0]
+            + " " + json.lados[0];
+            console.log(json);
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
+    </script>
+</body>
+</html>
