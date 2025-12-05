@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+    <p id = "tarea"></p>
+    <script>
+        const supabasePublicClient = supabase.createClient('https://ngkvjytxrgzgzvvaxnpk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5na3ZqeXR4cmd6Z3p2dmF4bnBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5MTYwMDEsImV4cCI6MjA3NzQ5MjAwMX0.dR2v9oZscjcu71VpO56wzSUcMLYXDS8YS_WB0i7pp1E',{
+            db:{
+                schema: "public"
+            }
+        });
+
+        (async () => {
+            const response = await supabasePublicClient.from("cuerpo"). select ("peinado,lentes,aretes,maquillaje,collares,gorra,pulsera")
+            console.log (response)
+            document.getElementById("tarea").innerHTML= JSON.stringify (response, null,2);
+        } ) ()
+    </script>
+
+</body>
+</html>
