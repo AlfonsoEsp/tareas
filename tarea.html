@@ -18,7 +18,7 @@
         });
 
         (async () => {
-            const response = await supabasePublicClient.from("cuerpo"). select ("peinado,lentes,aretes,maquillaje,collares,gorra,pulsera")
+            const response = await supabasePublicClient.from("cuerpo"). select ("*")
             console.log (response)
             document.getElementById("tarea").innerHTML= JSON.stringify (response, null,2);
         } ) ()
